@@ -15,7 +15,6 @@ body{
  color:#fff0e4;font-family:Georgia,serif;
  overflow-x:hidden;text-align:center;
 }
-button{cursor:pointer;font:inherit}
 #stars{position:fixed;inset:0;pointer-events:none;z-index:0}
 main{position:relative;z-index:1}
 .hero{
@@ -25,23 +24,19 @@ main{position:relative;z-index:1}
 .small{letter-spacing:4px;color:#f6d58a;font:11px Arial}
 h1{
  font-size:clamp(45px,11vw,80px);line-height:1.1;
- color:#ffe0a2;margin:25px 0;
- text-shadow:0 0 25px #f7c5d8;
+ color:#ffe0a2;margin:25px 0;text-shadow:0 0 25px #f7c5d8;
 }
 h1 span{color:#f4b8d1}
 p{line-height:1.9;color:#f7dce8}
 .btn{
- border:1px solid #f6d58a;border-radius:35px;
- padding:14px 24px;margin:10px;
- background:linear-gradient(135deg,#f6d58a,#e9a7bd);
- color:#351a30;font-weight:bold;
- box-shadow:0 5px 25px #e9a7bd33;
+ border:1px solid #f6d58a;border-radius:35px;padding:14px 24px;
+ margin:10px;background:linear-gradient(135deg,#f6d58a,#e9a7bd);
+ color:#351a30;font-weight:bold;box-shadow:0 5px 25px #e9a7bd33;
 }
 .diyas{display:flex;gap:28px;margin:35px}
 .diya{
  width:42px;height:23px;border-radius:0 0 50% 50%;
- background:linear-gradient(#f5b66d,#a34a34);
- position:relative;
+ background:linear-gradient(#f5b66d,#a34a34);position:relative;
 }
 .diya:before{
  content:"";position:absolute;width:13px;height:23px;
@@ -54,21 +49,20 @@ p{line-height:1.9;color:#f7dce8}
 section{max-width:850px;margin:auto;padding:75px 18px}
 h2{font-size:clamp(28px,7vw,42px);color:#f6d58a;margin-bottom:15px}
 .sub{max-width:600px;margin:0 auto 30px}
+.gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.photo{
+ height:210px;border-radius:16px;
+ background:linear-gradient(140deg,#794662,#3c2547);
+ border:1px solid #f6d58a66;overflow:hidden;
+ display:flex;align-items:center;justify-content:center;color:#ffe2ef;
+}
+.photo img{width:100%;height:100%;object-fit:cover;display:block}
+@media(min-width:650px){.gallery{grid-template-columns:repeat(3,1fr)}}
 .panel{
  background:#ffffff12;border:1px solid #f6d58a55;
  border-radius:22px;padding:24px;margin-top:25px;
  box-shadow:0 15px 40px #0003;backdrop-filter:blur(8px);
 }
-.gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
-.photo{
- height:200px;border-radius:16px;
- background:linear-gradient(140deg,#794662,#3c2547);
- border:1px dashed #f6d58a;
- display:flex;align-items:center;justify-content:center;
- overflow:hidden;position:relative;color:#ffe2ef;
-}
-.photo img{width:100%;height:100%;object-fit:cover}
-@media(min-width:650px){.gallery{grid-template-columns:repeat(3,1fr)}}
 .envelope{
  width:min(320px,90%);height:190px;margin:30px auto;
  background:#bd7896;border-radius:12px;position:relative;
@@ -76,8 +70,7 @@ h2{font-size:clamp(28px,7vw,42px);color:#f6d58a;margin-bottom:15px}
  cursor:pointer;box-shadow:0 10px 30px #0005;
 }
 .envelope:before{
- content:"";position:absolute;inset:0;
- background:linear-gradient(35deg,transparent 49%,#e7a9c1 50%);
+ content:"";position:absolute;inset:0;background:#e7a9c1;
  clip-path:polygon(0 0,100% 0,50% 100%);
 }
 .envelope span{z-index:2;font-size:35px}
@@ -101,7 +94,6 @@ footer{padding:35px;color:#e9b8cc}
 <canvas id="stars"></canvas>
 <main>
 
-<!-- WELCOME -->
 <header class="hero">
  <div class="small">A LITTLE LIGHT, A LOT OF LOVE</div>
  <h1>Diwali With<br><span>My Jugnu ❤️</span></h1>
@@ -113,97 +105,80 @@ footer{padding:35px;color:#e9b8cc}
   <div class="diya"></div>
  </div>
 
- <button class="btn" onclick="startSurprise()">
- ✨ Light Up Our Diwali
- </button>
-
- <button class="btn" onclick="playMusic()" id="musicBtn">
- ♫ Play Our Song
- </button>
+ <button class="btn" onclick="startSurprise()">✨ Light Up Our Diwali</button>
+ <button class="btn" onclick="playMusic()" id="musicBtn">♫ Play Our Song</button>
  <small id="musicStatus">Maine Khud Ko ❤️</small>
  <p style="margin-top:30px">Scroll down for your surprise ↓</p>
 </header>
-
-<!-- MEMORIES -->
-<section id="memories">
 
 <section id="memories">
  <h2>Our Little World ❤️</h2>
  <p class="sub">Kuch tasveerein, kuch yaadein aur bahut saara pyaar.</p>
 
  <div class="gallery">
-  <div class="photo"><img src="photo1.jpg" onerror="this.parentElement.innerText='📸 Memory 1'"></div>
-  <div class="photo"><img src="photo2.JPG" onerror="this.parentElement.innerText='❤️ Memory 2'"></div>
-  <div class="photo"><img src="photo3.jpg" onerror="this.parentElement.innerText='✨ Memory 3'"></div>
-  <div class="photo"><img src="photo4.JPG" onerror="this.parentElement.innerText='🌸 Memory 4'"></div>
-  <div class="photo"><img src="photo5.JPG" onerror="this.parentElement.innerText='🪔 Memory 5'"></div>
-  <div class="photo"><img src="photo6.jpg" onerror="this.parentElement.innerText='🥰 Memory 6'"></div>
-  <div class="photo"><img src="photo7.jpg" onerror="this.parentElement.innerText='💕 Memory 7'"></div>
-  <div class="photo"><img src="photo8.jpg" onerror="this.parentElement.innerText='🌷 Memory 8'"></div>
-  <div class="photo"><img src="photo9.jpg" onerror="this.parentElement.innerText='💗 Memory 9'"></div>
-  <div class="photo"><img src="photo10.jpg" onerror="this.parentElement.innerText='🌙 Memory 10'"></div>
-  <div class="photo"><img src="photo11.jpg" onerror="this.parentElement.innerText='💖 Memory 11'"></div>
-  <div class="photo"><img src="photo12.jpg" onerror="this.parentElement.innerText='❤️ Memory 12'"></div>
+  <div class="photo"><img src="photo1.jpg" onerror="this.parentElement.innerHTML='📸 Memory 1'"></div>
+  <div class="photo"><img src="photo2.JPG" onerror="this.parentElement.innerHTML='❤️ Memory 2'"></div>
+  <div class="photo"><img src="photo3.jpg" onerror="this.parentElement.innerHTML='✨ Memory 3'"></div>
+  <div class="photo"><img src="photo4.JPG" onerror="this.parentElement.innerHTML='🌸 Memory 4'"></div>
+  <div class="photo"><img src="photo5.JPG" onerror="this.parentElement.innerHTML='🪔 Memory 5'"></div>
+  <div class="photo"><img src="photo6.jpg" onerror="this.parentElement.innerHTML='🥰 Memory 6'"></div>
+  <div class="photo"><img src="photo7.jpg" onerror="this.parentElement.innerHTML='💕 Memory 7'"></div>
+  <div class="photo"><img src="photo8.jpg" onerror="this.parentElement.innerHTML='🌷 Memory 8'"></div>
+  <div class="photo"><img src="photo9.jpg" onerror="this.parentElement.innerHTML='💗 Memory 9'"></div>
+  <div class="photo"><img src="photo10.jpg" onerror="this.parentElement.innerHTML='🌙 Memory 10'"></div>
+  <div class="photo"><img src="photo11.jpg" onerror="this.parentElement.innerHTML='💖 Memory 11'"></div>
+  <div class="photo"><img src="photo12.jpg" onerror="this.parentElement.innerHTML='❤️ Memory 12'"></div>
  </div>
 </section>
 
-
-<!-- LETTER -->
 <section>
  <h2>Kuch Baatein Mere Dil Ki...</h2>
  <p class="sub">Ek letter jo shayad saamne baithkar kehna mushkil hota hai. 💌</p>
 
- <div class="envelope" onclick="openLetter()">
-  <span>❤️💌❤️</span>
- </div>
-
+ <div class="envelope" onclick="openLetter()"><span>❤️💌❤️</span></div>
  <button class="btn" onclick="openLetter()">Open Your Letter 💌</button>
 
  <div class="panel letter" id="letter">
- <h3>Meri Pyaari Jugnu ❤️</h3>
+  <h3>Meri Pyaari Jugnu ❤️</h3>
 
- <p>Sabse pehle tumhe aur tumhare poore parivaar ko Diwali ki dher saari shubhkamnayein. ❤️</p>
+  <p>Sabse pehle tumhe aur tumhare poore parivaar ko Diwali ki dher saari shubhkamnayein. ❤️</p>
 
- <p>Pata hai Jugnu, Diwali toh har saal aati hai. Ghar sajte hain, diye jalte hain, aasman roshni se bhar jaata hai. Lekin kabhi-kabhi inhi khushiyon ke beech ek baat sochkar bahut bura lagta hai ki main shayad kabhi tumhare saath ye sab nahi mana paunga.</p>
+  <p>Pata hai Jugnu, Diwali toh har saal aati hai. Ghar sajte hain, diye jalte hain, aasman roshni se bhar jaata hai. Lekin kabhi-kabhi inhi khushiyon ke beech ek baat sochkar bahut bura lagta hai ki main shayad kabhi tumhare saath ye sab nahi mana paunga.</p>
 
- <p>Main toh tumhare saath poori zindagi bitana chahta hoon. Sirf aaj ki tarah milna, ghoomna aur kuch achhe pal bita lena hi nahi, balki tumhare saath ek poori zindagi jeena chahta hoon.</p>
+  <p>Main toh tumhare saath poori zindagi bitana chahta hoon. Sirf aaj ki tarah milna, ghoomna aur kuch achhe pal bita lena hi nahi, balki tumhare saath ek poori zindagi jeena chahta hoon.</p>
 
- <p>Mera mann karta hai ki abhi jo hum gharwalon se chhupkar milte hain, kabhi wahi hum khulkar ek doosre ka haath pakadkar ghoom sakein. Tumhari khushi mein tumhare saath hans sakun, tumhare dukh mein tumhara sahara ban sakun.</p>
+  <p>Mera mann karta hai ki abhi jo hum gharwalon se chhupkar milte hain, kabhi wahi hum khulkar ek doosre ka haath pakadkar ghoom sakein. Tumhari khushi mein tumhare saath hans sakun, tumhare dukh mein tumhara sahara ban sakun.</p>
 
- <p>Kabhi kuch naya khareedna ho toh hum dono baithkar discuss karein. Chhoti-chhoti baaton par ek doosre ki raay lein. Har festival saath manayein. Diwali par saath diye jalayein, Holi par ek doosre ko rang lagayein aur har khaas din ko apna bana lein.</p>
+  <p>Kabhi kuch naya khareedna ho toh hum dono baithkar discuss karein. Chhoti-chhoti baaton par ek doosre ki raay lein. Har festival saath manayein. Diwali par saath diye jalayein, Holi par ek doosre ko rang lagayein aur har khaas din ko apna bana lein.</p>
 
- <p>Mujhe sirf tumhare saath kuch pal nahi chahiye, mujhe tumhare saath zindagi ke har pal mein shaamil hona hai.</p>
+  <p>Mujhe sirf tumhare saath kuch pal nahi chahiye, mujhe tumhare saath zindagi ke har pal mein shaamil hona hai.</p>
 
- <p><b>Ek baat aur hai jo shayad tum kabhi poori tarah samajh nahi paogi...</b></p>
+  <p>Mujhe pata hai ki tumhari taraf se hamare future ko lekar koi umeed nahi hai. Aur jab main ye sochta hoon ki jis insaan se maine itna pyaar kiya, jiske saath poori zindagi bitane ke sapne dekhe, uske saath shayad main kabhi woh sab jee hi nahi paunga, toh bahut takleef hoti hai.</p>
 
- <p>Mujhe pata hai ki tumhari taraf se hamare future ko lekar koi umeed nahi hai. Aur jab main ye sochta hoon ki jis insaan se maine itna pyaar kiya, jiske saath poori zindagi bitane ke sapne dekhe, uske saath shayad main kabhi woh sab jee hi nahi paunga, toh bahut takleef hoti hai.</p>
+  <p>Shayad isi wajah se main har baar tumhare saath bitaye jaane wale waqt mein koi na koi mauka dhoondhta rehta hoon. Sochta hoon ki jitna waqt tum mere saath ho, usmein jitni khushiyan de sakun, jitne pal jee sakun, jee loon. Kyunki mujhe nahi pata ki aage kabhi ye mauke milenge bhi ya nahi.</p>
 
- <p>Shayad tum samajh sakti ho ki jisse koi insaan hadd se zyada pyaar karta ho, uske saath apni chhoti-chhoti khwahishein bhi poori na kar paane ka ehsaas kitna dard deta hai.</p>
+  <p>Mujhe tumhare saath hona achha lagta hai. Physical closeness mere liye bas part of love hai, main sirf utne ke liye pareshan nahi rehta. Mujhe toh bas tumhare saath woh sukoon bhara alone time achha lagta hai.</p>
 
- <p>Shayad isi wajah se main har baar tumhare saath bitaye jaane wale waqt mein koi na koi mauka dhoondhta rehta hoon. Sochta hoon ki jitna waqt tum mere saath ho, usmein jitni khushiyan de sakun, jitne pal jee sakun, jee loon. Kyunki mujhe nahi pata ki aage kabhi ye mauke milenge bhi ya nahi.</p>
+  <p>Jab tum mere saath baithkar mujhe daant-daant kar khana khilati ho, kabhi mere baalon mein pyaar se haath ghumati ho, ya kitchen mein jab main tumhe pareshan karta rehta hoon... toh pata hai, woh chhoti-chhoti cheezein mere liye kitni badi hoti hain?</p>
 
- <p>Mujhe tumhare saath hona achha lagta hai. Physical closeness mere liye bas part of love hai, main sirf utne ke liye pareshan nahi rehta. Mujhe toh bas tumhare saath woh sukoon bhara alone time achha lagta hai.</p>
+  <p>Kabhi-kabhi jab main apne aane wale waqt ke baare mein sochta hoon, jismein tum mere saath nahi hogi, toh bahut bura lagta hai. Lekin jab tum mere paas hoti ho aur ye sab chhoti-chhoti cheezein karti ho, toh us waqt woh dukh thoda kam ho jaata hai.</p>
 
- <p>Jab tum mere saath baithkar mujhe daant-daant kar khana khilati ho, kabhi mere baalon mein pyaar se haath ghumati ho, ya kitchen mein jab main tumhe pareshan karta rehta hoon... toh pata hai, woh chhoti-chhoti cheezein mere liye kitni badi hoti hain?</p>
+  <p>Us waqt lagta hai ki kaash ye pal thode aur lambe ho jaayein. Kaash waqt yahin ruk jaaye.</p>
 
- <p>Kabhi-kabhi jab main apne aane wale waqt ke baare mein sochta hoon, jismein tum mere saath nahi hogi, toh bahut bura lagta hai. Lekin jab tum mere paas hoti ho aur ye sab chhoti-chhoti cheezein karti ho, toh us waqt woh dukh thoda kam ho jaata hai.</p>
+  <p>Shayad tumhare liye ye bas kuch normal moments hon, lekin mere liye ye un khwabon ki sabse khoobsurat jhalak hain jinhe main tumhare saath jeena chahta tha.</p>
 
- <p>Us waqt lagta hai ki kaash ye pal thode aur lambe ho jaayein. Kaash waqt yahin ruk jaaye.</p>
+  <p>Main tumse ye sab kehkar tumhe kisi tarah ka pressure nahi dena chahta. Na hi chahta hoon ki tum meri feelings ki wajah se khud ko kisi baat ke liye majboor samjho. Bas chahta hoon ki kabhi tum mere dil ki is baat ko samajh pao.</p>
 
- <p>Shayad tumhare liye ye bas kuch normal moments hon, lekin mere liye ye un khwabon ki sabse khoobsurat jhalak hain jinhe main tumhare saath jeena chahta tha.</p>
+  <p>Meri khwahish bahut badi nahi hai, bas tumhare saath ek aisi zindagi jeeni hai jahan hum sirf milne ke liye waqt na nikalein, balki ek doosre ki zindagi ka hissa hon.</p>
 
- <p>Main tumse ye sab kehkar tumhe kisi tarah ka pressure nahi dena chahta. Na hi chahta hoon ki tum meri feelings ki wajah se khud ko kisi baat ke liye majboor samjho. Bas chahta hoon ki kabhi tum mere dil ki is baat ko samajh pao.</p>
+  <p>Aur aaj Diwali par meri tumhare liye bas yahi dua hai ki tum hamesha khush raho, tumhari zindagi mein kabhi khushiyon ki roshni kam na ho, tumhare saare sapne poore hon aur tum hamesha yun hi muskurati raho.</p>
 
- <p>Meri khwahish bahut badi nahi hai, bas tumhare saath ek aisi zindagi jeeni hai jahan hum sirf milne ke liye waqt na nikalein, balki ek doosre ki zindagi ka hissa hon.</p>
+  <p style="text-align:center;color:#f6d58a;font-size:21px"><b>Happy Diwali, Meri Jugnu! ❤️🪔</b></p>
 
- <p>Aur aaj Diwali par meri tumhare liye bas yahi dua hai ki tum hamesha khush raho, tumhari zindagi mein kabhi khushiyon ki roshni kam na ho, tumhare saare sapne poore hon aur tum hamesha yun hi muskurati raho.</p>
-
- <p style="text-align:center;color:#f6d58a;font-size:21px"><b>Happy Diwali, Meri Jugnu! ❤️🪔</b></p>
-
- <p style="text-align:right;color:#f4bfd3">
- Tumhari khushi ki dua karne wala,<br>
- <b>Tumhara Sir Ji ❤️</b>
- </p>
+  <p style="text-align:right;color:#f4bfd3">
+   Tumhari khushi ki dua karne wala,<br>
+   <b>Tumhara Sir Ji ❤️</b>
+  </p>
  </div>
 </section>
 
@@ -229,7 +204,7 @@ function playMusic(){
    document.getElementById("musicBtn").innerText="Ⅱ Pause Our Song";
    document.getElementById("musicStatus").innerText="Now Playing ❤️";
   }).catch(()=>{
-   alert("Pehle song.mp3 file repository mein upload karo.");
+   alert("Song file check karo. File ka naam song.mp3 hona chahiye.");
   });
  }else{
   song.pause();
@@ -249,7 +224,6 @@ function openLetter(){
  document.getElementById("letter").scrollIntoView({behavior:"smooth"});
 }
 
-// Floating hearts
 setInterval(()=>{
  const heart=document.createElement("div");
  heart.className="heart";
@@ -260,19 +234,20 @@ setInterval(()=>{
  setTimeout(()=>heart.remove(),6000);
 },900);
 
-// Sparkles
 const canvas=document.getElementById("stars");
 const ctx=canvas.getContext("2d");
 let stars=[];
+
 function resize(){
  canvas.width=innerWidth;
  canvas.height=innerHeight;
  stars=Array.from({length:65},()=>({
- x:Math.random()*innerWidth,
- y:Math.random()*innerHeight,
- r:Math.random()*2+.5
+  x:Math.random()*innerWidth,
+  y:Math.random()*innerHeight,
+  r:Math.random()*2+.5
  }));
 }
+
 function animate(){
  ctx.clearRect(0,0,canvas.width,canvas.height);
  stars.forEach(s=>{
@@ -283,10 +258,10 @@ function animate(){
  });
  requestAnimationFrame(animate);
 }
+
 resize();
 animate();
 window.addEventListener("resize",resize);
 </script>
 </body>
-  </html>
-  
+</html>
