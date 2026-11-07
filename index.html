@@ -265,3 +265,105 @@ window.addEventListener("resize",resize);
 </script>
 </body>
 </html>
+
+<style>
+.diya-message {
+  display: none;
+  position: fixed;
+  left: 50%;
+  bottom: 12%;
+  transform: translateX(-50%);
+  width: 85%;
+  max-width: 360px;
+  padding: 18px 20px;
+  background: rgba(40, 19, 12, 0.94);
+  color: #ffe7a3;
+  border: 1px solid #e9bd68;
+  border-radius: 18px;
+  text-align: center;
+  font-size: 17px;
+  line-height: 1.6;
+  z-index: 99999;
+  box-shadow: 0 0 30px rgba(255, 190, 70, 0.35);
+  animation: diyaPop .45s ease;
+}
+
+.diya-message.show {
+  display: block;
+}
+
+.diya-message small {
+  display: block;
+  margin-top: 7px;
+  color: #fff0c9;
+  font-size: 12px;
+}
+
+.diyas .diya {
+  cursor: pointer;
+  display: inline-block;
+  transition: transform .3s, filter .3s;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.diyas .diya.lit {
+  transform: scale(1.2);
+  filter: drop-shadow(0 0 18px gold);
+}
+
+@keyframes diyaPop {
+  from { opacity: 0; transform: translate(-50%, 20px) scale(.85); }
+  to { opacity: 1; transform: translate(-50%, 0) scale(1); }
+}
+</style>
+
+<div class="diya-message" id="diyaLoveMessage">
+  ❤️ Tum meri sabse pyaari roshni ho ❤️
+  <small>Ek aur diya jalao, ek aur secret pao ✨</small>
+</div>
+
+<script>
+(function () {
+  const messages = [
+    "Tum meri zindagi ki sabse pyaari roshni ho. ❤️",
+    "Tum ho toh har din Diwali jaisa lagta hai. 🪔",
+    "Meri har dua mein tum shamil ho. ✨",
+    "Tumhari smile meri favourite celebration hai. 🥰",
+    "Kaash har Diwali tumhare saath mana sakun. 💕",
+    "Meri andheri raaton ka sabse pyaara chaand tum ho. 🌙",
+    "Bas tumhara saath chahiye, har janam. ❤️",
+    "Meri duniya ki sabse khoobsurat Jugnu tum ho. 🥹",
+    "Tumse hi meri har khushi roshan hai. ✨",
+    "Mera favourite festival? Tumhare saath bitaya har pal. ❤️",
+    "Ek chhoti si dua: tum hamesha muskurati raho. 🪔",
+    "I love you, meri pyaari Jugnu! ❤️"
+  ];
+
+  let lastIndex = -1;
+  const messageBox = document.getElementById("diyaLoveMessage");
+
+  document.querySelectorAll(".diyas .diya").forEach(function(diya) {
+    diya.addEventListener("click", function() {
+      let index;
+      do {
+        index = Math.floor(Math.random() * messages.length);
+      } while (index === lastIndex);
+
+      lastIndex = index;
+      messageBox.innerHTML =
+        messages[index] +
+        "<small>Ek aur diya jalao, ek aur secret pao ✨</small>";
+
+      messageBox.classList.remove("show");
+      void messageBox.offsetWidth;
+      messageBox.classList.add("show");
+
+      diya.classList.add("lit");
+
+      setTimeout(function() {
+        messageBox.classList.remove("show");
+      }, 4000);
+    });
+  });
+})();
+</script>
